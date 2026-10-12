@@ -14,6 +14,10 @@
 ├── 04_電子署名.md
 ├── 05_証明書とPKI.md
 ├── 06_TLS_HTTPS.md
+├── setup_wsl.sh           … 環境準備スクリプト（WSL の Ubuntu 用）
+├── setup_pi.sh            … 環境準備スクリプト（Raspberry Pi OS 用）
+├── 準備手順_WSL.md
+├── 準備手順_RaspberryPi.md
 └── files/
     ├── ca/
     │   ├── Dockerfile          … 簡易CAコンテナ
@@ -41,6 +45,15 @@
   VMへのNginxインストールは不要です。
   **VM側で80/443番ポートを使うサービスが動いていないこと**を確認してください。
   （もし素のNginx等が動いていたら `sudo systemctl stop nginx` で停止）
+- WSL（Ubuntu）や Raspberry Pi OS では、次の setup スクリプトで上の環境をまとめて準備できます。
+  詳しくは `準備手順_WSL.md` / `準備手順_RaspberryPi.md` を参照してください。
+
+```bash
+git clone https://github.com/yasuyuki-nogami/Jissen_7th_handson.git
+cd Jissen_7th_handson
+bash setup_wsl.sh    # Raspberry Pi の場合は bash setup_pi.sh
+```
+
 - 事前確認コマンド:
 
 ```bash
@@ -57,7 +70,7 @@ curl --version | head -1
 - 各ステップは「目的 → コマンド → 確認ポイント」で構成しています。
 - 作業ディレクトリは各時間の冒頭で `~/crypto-handson/NN_xxx` を作成して使います。
 - 5時間目・6時間目は `files/` 以下の設定ファイルを使用します。
-  事前にVMへこのディレクトリ一式をコピーしておいてください。
+  setup スクリプトが `~/crypto-handson/files` にコピーします（使わない場合は手動でコピーしておいてください）。
 
 ## 注意（改行コード）
 

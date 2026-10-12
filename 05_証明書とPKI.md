@@ -201,9 +201,12 @@ docker compose exec web nginx -s reload
 「このCAを信頼する」とOSに登録します。
 
 ```bash
+cd ~/crypto-handson/05_pki
 sudo cp ca.crt /usr/local/share/ca-certificates/handson-ca.crt
 sudo update-ca-certificates
 ```
+
+✅ 確認: `1 added` と表示されること（`0 added` なら `cd` を忘れていないか確認）。
 
 ✅ 確認: `1 added` と表示される。
 
