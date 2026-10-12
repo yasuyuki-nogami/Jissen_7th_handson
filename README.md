@@ -54,6 +54,9 @@ cd Jissen_7th_handson
 bash setup_wsl.sh    # Raspberry Pi の場合は bash setup_pi.sh
 ```
 
+- setup が終わったら一度ログインし直してください（WSL は `exit` して Ubuntu を開き直す、Raspberry Pi は `sudo reboot`）。
+  docker を sudo なしで使えるようにするためです。
+
 - 事前確認コマンド:
 
 ```bash

@@ -88,6 +88,9 @@ Client                         Server
 ```bash
 cd ~/crypto-handson/files/nginx
 
+# 元の設定を控えておく（conf.d の外に置く）
+cp conf.d/handson-http.conf handson-http.conf.orig
+
 # 80番の「ページ配信」設定を「リダイレクト」設定で置き換える
 cp extra/handson-redirect.conf conf.d/handson-http.conf
 
@@ -100,6 +103,14 @@ curl -IL http://localhost/
 
 ✅ 確認: `301 Moved Permanently` → `Location: https://...` →
 最終的に `200 OK`（HTTPS）となる。
+
+元に戻すとき（やり直したいとき）:
+
+```bash
+cd ~/crypto-handson/files/nginx
+cp handson-http.conf.orig conf.d/handson-http.conf
+docker compose exec web nginx -s reload
+```
 
 ---
 
