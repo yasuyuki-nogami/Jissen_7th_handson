@@ -1,0 +1,14 @@
+# 演習用Webサーバー（Nginx）
+# 使い方: このディレクトリで docker compose up -d
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: handson-web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - ./html:/usr/share/nginx/html:ro
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+# 自己署名証明書・CSR作成用の設定（サーバー側）
+[ req ]
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+x509_extensions    = v3_req
+prompt             = no
+
+[ req_distinguished_name ]
+C  = JP
+O  = DX Handson
+CN = localhost
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage         = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName   = DNS:localhost, IP:127.0.0.1
